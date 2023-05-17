@@ -72,7 +72,8 @@ class WindowedDisplay:
 
 
 class CarParkDisplay:
-    """Provides a simple display of the car park status. This is a skeleton only. The class is designed to be customizable without requiring and understanding of tkinter or threading."""
+    """Provides a simple display of the car park status. This is a skeleton only.
+    The class is designed to be customizable without requiring and understanding of tkinter or threading."""
     # determines what fields appear in the UI
     fields = ['Available bays', 'Temperature', 'At']
 
