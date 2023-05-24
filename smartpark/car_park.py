@@ -12,10 +12,15 @@ class ParkingLot:
 
     def enter(self) -> None:
         """Register a car entering the parking lot."""
+        if 1 <= self.available_spaces <= self.total_spaces:
+            self.available_spaces += 1
+            return
+        # todo - display message????
         pass
 
     def exit(self) -> None:
         """Register a car leaving the parking lot"""
+        self.available_spaces -= 1
         pass
 
     def publish_update(self) -> None:
