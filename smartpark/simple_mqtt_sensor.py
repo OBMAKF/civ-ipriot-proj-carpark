@@ -3,6 +3,7 @@ a publication via mqtt"""
 
 import mqtt_device
 
+
 class Sensor(mqtt_device.MqttDevice):
 
     def on_detection(self, message):
