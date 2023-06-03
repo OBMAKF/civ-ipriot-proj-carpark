@@ -71,14 +71,14 @@ class SensorLabel(tk.Label):
 
 
 class Display(tk.Tk):
-    def __init__(self, broker) -> None:
+    def __init__(self, connection) -> None:
         super(Display, self).__init__()
         self.layout = {}
 
-        self.broker = broker
+        self.connection = connection
 
     def fetch_info(self, sensor_id):
-        # return broker message
+        # return connection message
         pass
 
     def mainloop(self, n: int = 0) -> None:

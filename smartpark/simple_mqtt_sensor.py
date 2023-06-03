@@ -22,7 +22,7 @@ if __name__ == '__main__':
     config = {'name': 'super sensor',
               'location': 'L306',
               'topic-root': "lot",
-              'broker': 'localhost',
+              'connection': 'localhost',
               'port': 1883,
               'topic-qualifier': 'entry'
               }

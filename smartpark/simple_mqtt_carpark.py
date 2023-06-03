@@ -2,7 +2,7 @@ import paho.mqtt.client as paho
 import mqtt_device
 
 class Carpark(mqtt_device.MqttDevice):
-    """Creates a carpark object to store the state of cars in the lot"""
+    """Creates a topic object to store the state of cars in the lot"""
 
     def __init__(self, config):
         super().__init__(config)
@@ -34,7 +34,7 @@ if __name__ == '__main__':
               'total-cars': 0,
               'location': 'L306',
               'topic-root': "lot",
-              'broker': 'localhost',
+              'connection': 'localhost',
               'port': 1883,
               'topic-qualifier': 'entry'
               }

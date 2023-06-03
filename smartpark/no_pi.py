@@ -28,7 +28,7 @@ class WindowedDisplay:
         Parameters
         ----------
         title : str
-            The title of the window (usually the name of your carpark from the config)
+            The title of the window (usually the name of your topic from the config)
         display_fields : Iterable
             An iterable (usually a list) of field names for the UI. Updates to values must be presented in a dictionary with these values as keys.
         """

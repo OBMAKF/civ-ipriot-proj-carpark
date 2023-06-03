@@ -7,7 +7,7 @@ broker_port = ""
 # Create an MQTT client
 client = mqtt.Client()
 
-# Connect the client to the MQTT broker
+# Connect the client to the MQTT connection
 client.connect(broker_host, broker_port)
 
 # Subscribe to a topic to receive messages

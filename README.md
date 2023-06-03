@@ -57,7 +57,7 @@ git clone https://github.com/your-username/civ-ipriot-proj-carpark.git
 1. Change to the cloned repository's directory:
 
 ```bash
-cd civ-ipriot-proj-carpark
+cd civ-ipriot-proj-topic
 ```
 
 2.  Create a new branch for your local modifications by running:

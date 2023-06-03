@@ -17,7 +17,7 @@ class TemperatureSensor(Sensor):
             self.url, params=self.parameters
         ).json()['current']['temperature']
 
-    def read_sensor(self):
+    def read_sensor(self) -> dict:
         date = str(datetime.now().strftime('%d-%m-%Y'))
         time = datetime.now().strftime('%H:%M:%S')
         temperature = self.get_temp()

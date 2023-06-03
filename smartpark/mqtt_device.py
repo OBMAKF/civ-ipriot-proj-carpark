@@ -12,8 +12,8 @@ class MqttDevice:
         self.topic_device = device_name
         self.topic = self._create_topic_string()
 
-        # Configure broker
-        self.broker = config['broker']
+        # Configure connection
+        self.broker = config['connection']
         self.port = config['port']
 
         # initialise a paho client and bind it to the object (has-a)
