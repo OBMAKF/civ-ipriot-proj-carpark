@@ -31,10 +31,16 @@ class CarPark:
     def assign_car(self):
         if self.count < self.TOTAL_SPACES:
             self.count += 1
+            self.publish()
+
+    def pay_fee(self):
+        if 1 <= self.count:
+            self.count -= 1
+            self.publish()
+
+    def publish(self):
             self.client.publish(
                 self.TOPIC,
-                f"{datetime.now().strftime('%d/%m/%Y')}\n" +
-                f"{datetime.now().strftime('%H:%M:%S')}\n" +
                 f"{self.sensor.read_sensor()['temperature']}\n" +
                 f"Free Bays: {self.free_bays()}")
 
