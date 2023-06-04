@@ -1,5 +1,5 @@
 [config]
 location = "test"
-total_spaces = 192
+total_spaces = 12
 broker_host = "localhost"
 broker_port = 1883
