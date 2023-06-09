@@ -8,9 +8,9 @@ import threading
 
 if __name__ == '__main__':
     threads = [
-        threading.Thread(target=lambda: CarPark('test')),
-        threading.Thread(target=lambda: Clock('test')),
-        threading.Thread(target=lambda: TemperatureSensor('test')),
-        threading.Thread(target=lambda: TkDisplay('test'))]
+        threading.Thread(target=lambda: CarPark('moondalup')),
+        threading.Thread(target=lambda: Clock('moondalup')),
+        threading.Thread(target=lambda: TemperatureSensor('moondalup')),
+        threading.Thread(target=lambda: TkDisplay('moondalup'))]
     for thread in threads:
         thread.start()
