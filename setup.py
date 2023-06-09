@@ -8,7 +8,8 @@ setup(
         "paho-mqtt",
         "sense-hat",
         "tkinter",
-        "toml"
+        "tomli",
+        "requests"
     ],
     entry_points={
         "console_scripts": [
