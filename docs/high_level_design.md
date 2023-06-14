@@ -252,6 +252,7 @@ class TestConfigParsing(unittest.TestCase):
 import unittest
 from parking_lot import ParkingLot
 
+
 class TestParkingLot(unittest.TestCase):
     def test_no_negative_spaces(self):
         parking_lot = ParkingLot("Test Location", 2, "localhost", 1883)
@@ -259,9 +260,9 @@ class TestParkingLot(unittest.TestCase):
         parking_lot.enter()
         parking_lot.enter()
         self.assertEqual(parking_lot.available_spaces, 0)
-        parking_lot.exit()
-        parking_lot.exit()
-        parking_lot.exit()
+        parking_lot.on_exit()
+        parking_lot.on_exit()
+        parking_lot.on_exit()
         self.assertEqual(parking_lot.available_spaces, 1)
 ```
 
@@ -316,8 +317,10 @@ Use Tkinter buttons to simulate joystick events, such as "enter" and "exit" for 
 def on_enter_button_click():
     parking_lot.enter()
 
+
 def on_exit_button_click():
-    parking_lot.exit()
+    parking_lot.on_exit()
+
 
 enter_button = tk.Button(root, text="Enter", command=on_enter_button_click)
 exit_button = tk.Button(root, text="Exit", command=on_exit_button_click)
@@ -367,7 +370,7 @@ while True:
     if action == 'e':
         parking_lot.enter()
     elif action == 'x':
-        parking_lot.exit()
+        parking_lot.on_exit()
     elif action == 'q':
         break
 ```

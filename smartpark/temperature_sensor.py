@@ -3,7 +3,8 @@ import requests
 
 
 class TemperatureSensor(Broker):
-    API_KEY = '7230411ea048e2ca7efc23bbf22748fc'
+
+    API_KEY = '6678d15f045b8d033e4127fdb6071d3b'
 
     def __init__(self, location) -> None:
         super(TemperatureSensor, self).__init__(
@@ -20,17 +21,29 @@ class TemperatureSensor(Broker):
         self.client.loop_forever()
 
     def get_temp(self):
-        return requests.get(
-            self.url, params=self.parameters
-        ).json()['current']['temperature']
+        try:
+            return requests.get(
+                self.url, params=self.parameters
+            ).json()['current']['temperature']
+        except KeyError:
+            # Enter backup API-key (exceeded max calls on free api-key)
+            self.parameters['access_key'] = '7230411ea048e2ca7efc23bbf22748fc'
+            return requests.get(
+                self.url, params=self.parameters
+            ).json()['current']['temperature']
+        except ValueError:
+            return "0"
 
     def read_sensor(self) -> str:
         temperature = self.get_temp()
-        return f"{float(temperature):.1f}℃"
+        if float(temperature) != 0.0:
+            return f"{float(temperature):.1f}℃"
+        return "N/A"
     
     def on_message(self, client, userdata, message):
         self.client.publish(f"{self.config['location']}/temperature", self.read_sensor())
 
 
 if __name__ == '__main__':
-    TemperatureSensor('test')
+    x = TemperatureSensor('test')
+    print(x.get_temp())
