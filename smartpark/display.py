@@ -7,10 +7,9 @@ import tkinter as tk
 class TkDisplay(tk.Tk):
     subscriptions = ['update_bays', 'date', 'time', 'temperature']
 
-
     """
-    User Interface / Display unit.
-    Connects to a car park via MQTT broker. 
+    Tkinter User Interface / Display unit. Connects to a car park via MQTT broker.
+     
     Displays:
         - Current Date & Time.
         - Current Local Temperature (via API request).
