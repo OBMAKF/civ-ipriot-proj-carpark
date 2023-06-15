@@ -9,7 +9,7 @@ class TkDisplay(tk.Tk):
 
     """
     Tkinter User Interface / Display unit. Connects to a car park via MQTT broker.
-     
+    
     Displays:
         - Current Date & Time.
         - Current Local Temperature (via API request).
@@ -46,14 +46,33 @@ class TkDisplay(tk.Tk):
         self.current_bays = tk.StringVar(value=f"{self.config['total_spaces']}\nBays\n  Available  ")
 
         # Create labels to display current information
-        self.bays = tk.Label(self, textvariable=self.current_bays, font=('Arial Bold', 40),
-                             foreground='red', background='black')
-        self.time = tk.Label(self, textvariable=self.current_time, font=('Arial', 18),
-                             foreground='white', background='black')
-        self.date = tk.Label(self, textvariable=self.current_date, font=('Arial', 18),
-                             foreground='white', background='black')
-        self.temperature = tk.Label(self, textvariable=self.current_temperature, font=('Arial', 18),
-                                    foreground='white', background='black')
+        self.bays = tk.Label(
+            self, textvariable=self.current_bays,
+            font=('Arial Bold', 40),
+            foreground='red',
+            background='black'
+            )
+
+        self.time = tk.Label(
+            self, textvariable=self.current_time,
+            font=('Arial', 18),
+            foreground='white',
+            background='black'
+            )
+
+        self.date = tk.Label(
+            self, textvariable=self.current_date,
+            font=('Arial', 18),
+            foreground='white',
+            background='black'
+            )
+
+        self.temperature = tk.Label(
+            self, textvariable=self.current_temperature,
+            font=('Arial', 18),
+            foreground='white',
+            background='black'
+            )
 
         # Create buttons to allow the user to print a parking ticket / exit car park
         self.enter_button = tk.Button(self, text="Enter", command=self.on_entry)
@@ -66,8 +85,9 @@ class TkDisplay(tk.Tk):
         self.enter_button.grid(column=0, row=3, columnspan=2)
         self.exit_button.grid(column=1, row=3, columnspan=2)
 
-        # Manually create an event loop with a set delay length
+
         self.after(delay, lambda: self.get_update(delay))
+
         self.mainloop()
     
     def get_update(self, delay: int) -> None:
@@ -110,7 +130,6 @@ class TkDisplay(tk.Tk):
                 continue
 
             match topic:
-
                 case 'update_bays':
                     content = "\nBays\n  Available  "
                     target_index = 0

@@ -28,15 +28,17 @@ class TemperatureSensor(Broker):
         except KeyError:
             # Enter backup API-key (exceeded max calls on free api-key)
             self.parameters['access_key'] = '7230411ea048e2ca7efc23bbf22748fc'
-            return requests.get(
-                self.url, params=self.parameters
-            ).json()['current']['temperature']
-        except ValueError:
-            return "0"
+            try:
+                return requests.get(
+                    self.url,
+                    params=self.parameters).json()['current']['temperature']
+            except KeyError:
+                return "N/A"
 
     def read_sensor(self) -> str:
         temperature = self.get_temp()
-        if float(temperature) != 0.0:
+
+        if temperature.isnumeric():
             return f"{float(temperature):.1f}℃"
         return "N/A"
     
