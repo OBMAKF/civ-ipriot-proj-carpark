@@ -126,7 +126,7 @@ class TkDisplay(tk.Tk):
             target_index = ...
             result = ...
 
-            if not message_topic.endswith(topic):
+            if not message.topic.endswith(topic):
                 continue
 
             match topic:
@@ -146,7 +146,7 @@ class TkDisplay(tk.Tk):
             content = f"{message.payload.decode('utf-8')}" if content is None else \
                 f"{message.payload.decode('utf-8')}{content}"
 
-            return targets[target_index].set(content)
+            targets[target_index].set(content.replace('Ellipsis', ''))
 
 
 if __name__ == '__main__':

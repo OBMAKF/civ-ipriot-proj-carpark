@@ -25,6 +25,5 @@ def initialize_components(location: str) -> None:
     for thread in threads:
         thread.start()
 
-
 if __name__ == '__main__':
     initialize_components('moondalup')
