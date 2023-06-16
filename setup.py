@@ -1,3 +1,6 @@
+# Student:          Nathan Bransby
+# Student Number:   V141198
+
 from setuptools import find_packages, setup
 
 setup(

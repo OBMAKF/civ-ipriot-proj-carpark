@@ -1,3 +1,6 @@
+# Student:          Nathan Bransby
+# Student Number:   V141198
+
 from datetime import datetime
 from time import sleep
 from broker import Broker

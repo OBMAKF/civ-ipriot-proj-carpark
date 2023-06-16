@@ -1,3 +1,6 @@
+# Student:          Nathan Bransby
+# Student Number:   V141198
+
 from broker import Broker
 import requests
 

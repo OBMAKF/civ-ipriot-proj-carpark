@@ -1,3 +1,6 @@
+# Student:          Nathan Bransby
+# Student Number:   V141198
+
 from config_parser import ConfigManager
 from tomli import load
 import paho.mqtt.client as mqtt

@@ -1,3 +1,6 @@
+# Student:          Nathan Bransby
+# Student Number:   V141198
+
 from carpark import CarPark
 from clock import Clock
 from temperature_sensor import TemperatureSensor
